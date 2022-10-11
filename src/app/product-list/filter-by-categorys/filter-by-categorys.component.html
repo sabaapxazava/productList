@@ -1,0 +1,5 @@
+<div>
+    <ul class="list-group">
+        <li class="list-group-item list-group-item-action" *ngFor="let item of productCategorys;" (click)="CategoryChanged(item.Id)"><img style="height: 30px" [src]="item.ImageUrl" alt="">{{item.Name}}</li>
+    </ul>
+</div>

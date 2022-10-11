@@ -1,0 +1,8 @@
+<div>
+    <aside>
+        <app-filter-by-categorys (CategoryChangedEmitter)="CategoryChanged($event)" [productCategorys]="this.AllProductsCategory"></app-filter-by-categorys>
+    </aside>
+    <aside>
+        <app-filtered-proucts [ProducByCategory]="this.ProducByCategory"></app-filtered-proucts>
+    </aside>
+</div>

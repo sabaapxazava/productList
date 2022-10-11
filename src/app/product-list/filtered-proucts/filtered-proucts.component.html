@@ -1,0 +1,9 @@
+<div class="d-flex cards-area">
+    <div class="card" style="width: 18rem;"  *ngFor="let item of ProducByCategory;">
+        <img class="card-img-top" [src]="item.CoverImages" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">{{item.Name}}</h5>
+            <p class="card-text" [innerHTML]="item.LongDescription"></p>
+        </div>
+    </div>
+</div>
