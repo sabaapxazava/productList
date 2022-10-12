@@ -1,5 +1,15 @@
 <div>
-    <ul class="list-group">
-        <li class="list-group-item list-group-item-action" *ngFor="let item of productCategorys;" (click)="CategoryChanged(item.Id)"><img style="height: 30px" [src]="item.ImageUrl" alt="">{{item.Name}}</li>
-    </ul>
+  <ul class="list-group">
+    <li
+      class="list-group-item list-group-item-action"
+      *ngFor="let item of productCategorys">
+      <img style="height: 30px" [src]="item.ImageUrl" alt="" />{{ item.Name }}
+      <mat-checkbox
+        [(ngModel)]="isChecked[item.Id]"
+        class="example-margin"
+        (change)="CategoryChanged(item.Id, isChecked[item.Id])"
+        >Select!</mat-checkbox
+      >
+    </li>
+  </ul>
 </div>

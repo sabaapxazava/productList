@@ -11,8 +11,8 @@ export class ProductListComponent implements OnInit {
   @Output()
   public AllProducts:Product[] = [];
   public AllProductsCategory:ProductCategory[] = [];
-  public CategoryChangedEmitter:EventEmitter<ProductCategory> = new EventEmitter;
-  public SelectedCategory!:ProductCategory;
+  public CategoryChangedEmitter:EventEmitter<Number[]> = new EventEmitter;
+  public SelectedCategories:Number[] = [];
   public ProducByCategory:Product[] = [];
   constructor(private http:HttpService) { }
 
@@ -20,9 +20,9 @@ export class ProductListComponent implements OnInit {
     this.http.readProducts().subscribe(Response => this.AllProducts = Response);
     this.http.readCategorys().subscribe(Response => this.AllProductsCategory = Response);
   }
-  CategoryChanged(event:ProductCategory){
-    this.SelectedCategory = event;
-    this.ProducByCategory = this.AllProducts.filter(itme => itme.ProductCategory.Id == this.SelectedCategory.Id)
-    console.log(this.SelectedCategory);
+  CategoryChanged(event:Number[]){
+    this.SelectedCategories = event;
+    this.ProducByCategory = this.AllProducts.filter(item => item.ProductCategory.Id == this.SelectedCategories[this.SelectedCategories.indexOf(item.ProductCategory.Id, 0)])
+    console.log(this.AllProducts.filter(item => item.ProductCategory.Id == this.SelectedCategories[this.SelectedCategories.indexOf(item.ProductCategory.Id, 0)]));
   }
 }

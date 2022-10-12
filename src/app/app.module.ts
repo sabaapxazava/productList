@@ -9,6 +9,9 @@ import { FilterByCategorysComponent } from './product-list/filter-by-categorys/f
 import { FilteredProuctsComponent } from './product-list/filtered-proucts/filtered-proucts.component';
 import { HttpService } from './Shared-services/http.service';
 import { HttpClientModule } from '@angular/common/http';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +23,9 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatCheckboxModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

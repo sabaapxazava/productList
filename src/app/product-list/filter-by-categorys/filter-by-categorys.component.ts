@@ -11,14 +11,23 @@ export class FilterByCategorysComponent implements OnInit {
   public productCategorys!:ProductCategory[];
   
   @Output()
-  public CategoryChangedEmitter:EventEmitter<ProductCategory> = new EventEmitter;
-
+  public CategoryChangedEmitter:EventEmitter<Number[]> = new EventEmitter;
+  public isChecked:boolean[] = [];
   constructor() { }
-
+  public SelectedCategoryIds:Number[] = [];
   ngOnInit(): void {
   }
-  CategoryChanged(CategoryId:number){
-    this.CategoryChangedEmitter.emit(this.productCategorys.find(item => item.Id == CategoryId))
+  CategoryChanged(CategoryId:Number, Selected:boolean){
+    if(Selected){
+      this.SelectedCategoryIds.push(CategoryId);
+    }
+    else{
+      let index = this.SelectedCategoryIds.indexOf(CategoryId, 0)
+      if (index > -1) {
+        this.SelectedCategoryIds.splice(index, 1);
+     }
+    }
+    this.CategoryChangedEmitter.emit(this.SelectedCategoryIds)
   }
 
 }
